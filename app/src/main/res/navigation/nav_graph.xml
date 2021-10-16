@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/catsFragment">
+
+    <fragment
+        android:id="@+id/catsFragment"
+        android:name="com.orlove101.android.mvvmstoragetask.ui.cats.CatsFragment"
+        android:label="Cats"
+        tools:layout="@layout/fragment_cats">
+        <action
+            android:id="@+id/action_catsFragment_to_addEditCatFragment"
+            app:destination="@id/addEditCatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditCatFragment"
+        android:name="com.orlove101.android.mvvmstoragetask.ui.addeditcat.AddEditCatFragment"
+        android:label="{title}"
+        tools:layout="@layout/fragment_add_edit_cat">
+        <argument
+            android:name="cat"
+            android:defaultValue="@null"
+            app:argType="com.orlove101.android.mvvmstoragetask.data.models.Cat"
+            app:nullable="true" />
+        <argument
+            android:name="title"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.orlove101.android.mvvmstoragetask.ui.settings.SettingsFragment"
+        android:label="SettingsFragment" /><action android:id="@+id/action_global_settingsFragment" app:destination="@id/settingsFragment"/>
+</navigation>
